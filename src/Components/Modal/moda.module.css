@@ -1,0 +1,40 @@
+.modal__overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+}
+.modal{
+    width: 40%;
+    background: #fff;
+    position: relative;
+}
+.modal__top{
+    text-align: center;
+}
+.modal__btn{
+    background: crimson;
+    padding: 0.3rem 0.5rem ;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.modal__title{
+    font-size: 25px;
+
+}
+.modal__body{
+    padding: 1rem;
+}
+.modal__body input{
+    outline: 2px solid aqua !important;
+}
+.modal__body button{
+    margin: 1rem 0rem;
+}

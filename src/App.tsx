@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useEffect, useState } from "react"
+import { Header, Home, Modal } from "./Components"
+import { Todos } from "./Interfaces"
+export const App = (): JSX.Element => {
+  const [data, setData] = useState<Todos[]>([])
+  const [editId, setEditId] = useState<number | undefined>()
+  const [modal, setModal] = useState<boolean>(false)
+  useEffect(() => {
+    if(editId !== undefined){
+      setModal(true)
+    }
+    console.log(editId)
+  },[editId])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+      <Header />
+      <main>
+      <Home setEditId={setEditId} data={data} setData={setData} title="Add todo" />
+      <Modal data={data} modal={modal} editId={editId} setModal={setModal} setEditId={setEditId} setData={setData}/> 
+      </main>
+      
+    </React.Fragment>
+  )
 }
-
-export default App;
